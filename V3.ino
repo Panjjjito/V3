@@ -41,3 +41,30 @@ HX711_ADC celdaDeCarga;
 AccelStepper motorDePasos(AccelStepper::DRIVER, PIN_MOTOR_PASOS_PULSO, PIN_MOTOR_PASOS_DIRECCION);
 ClickEncoder encoder(PIN_ENCODER_DT, PIN_ENCODER_CLK, PIN_ENCODER_BTN, 2, true);
 Stepper stepper(NUMERO_DE_PASOS_POR_REVOLUCION_DEL_MOTOR, 8, 9, 10, 11);
+// Declaración de variables y constantes
+
+const int motorPin = 9;   // Pin del motor
+const int buttonPin = 2;  // Pin del botón
+int buttonState = 0;      // Estado del botón
+int motorState = LOW;     // Estado del motor
+
+void setup() {
+  pinMode(motorPin, OUTPUT);
+  pinMode(buttonPin, INPUT);
+}
+
+void loop() {
+  buttonState = digitalRead(buttonPin);
+
+  if (buttonState == HIGH) {
+    if (motorState == LOW) {
+      motorState = HIGH;
+      digitalWrite(motorPin, motorState);
+    }
+    else {
+      motorState = LOW;
+      digitalWrite(motorPin, motorState);
+    }
+    delay(1000);
+  }
+}
