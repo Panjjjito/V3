@@ -41,6 +41,9 @@ HX711_ADC celdaDeCarga;
 AccelStepper motorDePasos(AccelStepper::DRIVER, PIN_MOTOR_PASOS_PULSO, PIN_MOTOR_PASOS_DIRECCION);
 ClickEncoder encoder(PIN_ENCODER_DT, PIN_ENCODER_CLK, PIN_ENCODER_BTN, 2, true);
 Stepper stepper(NUMERO_DE_PASOS_POR_REVOLUCION_DEL_MOTOR, 8, 9, 10, 11);
+
+//Aquí empieza sección 2:
+
 // Declaración de variables y constantes
 
 const int motorPin = 9;   // Pin del motor
